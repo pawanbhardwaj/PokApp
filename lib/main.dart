@@ -3,10 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:PokApp/pokemon.dart';
 import 'package:PokApp/pokemondetail.dart';
-// https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_1.20.4-stable.tar.xz
-// cd ~/development
-// tar xf ~/Downloads/flutter_linux_1.20.4-stable.tar.xz
-// /home/codespace/workspace/flutter/flutter
 void main() => runApp(MaterialApp(
       title: "Poke App",
       theme: ThemeData(
@@ -31,8 +27,7 @@ class HomePage extends StatefulWidget {
 }
 
 class HomePageState extends State<HomePage> {
-  var url =
-      "https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokedex.json";
+  
 
   PokeHub pokeHub;
 
@@ -44,8 +39,10 @@ class HomePageState extends State<HomePage> {
   }
 
   fetchData() async {
-    var res = await http.get(url);
-    var decodedJson = jsonDecode(res.body);
+    String url =
+      "https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokedex.json";
+    http.Response res = await http.get(url);
+    Map<String, dynamic> decodedJson = jsonDecode(res.body);
     pokeHub = PokeHub.fromJson(decodedJson);
     print(pokeHub.toJson());
     setState(() {});

@@ -3,9 +3,22 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:PokApp/pokemon.dart';
 import 'package:PokApp/pokemondetail.dart';
-
+// https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_1.20.4-stable.tar.xz
+// cd ~/development
+// tar xf ~/Downloads/flutter_linux_1.20.4-stable.tar.xz
+// /home/codespace/workspace/flutter/flutter
 void main() => runApp(MaterialApp(
       title: "Poke App",
+      theme: ThemeData(
+        accentColor: Colors.blue,
+        appBarTheme: AppBarTheme(
+          centerTitle: true,
+          elevation: 0.0,
+        ),
+        fontFamily: "Quicksand",
+        textTheme: TextTheme()
+            .apply(bodyColor: Colors.white, displayColor: Colors.white),
+      ),
       home: HomePage(),
       debugShowCheckedModeBanner: false,
     ));
